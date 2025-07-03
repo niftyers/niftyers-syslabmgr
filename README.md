@@ -12,7 +12,7 @@ Provide a centralized web interface for IT administrators to manage users, group
  - FastAPI - Python 3.7/3.8
 
 ### Frontend
-- Next.Js - Typescript
+- Vue 3 - Typescript
 
 ### Notes
 This is still a work in progress, and contributions/advice/bug reports are welcome.
