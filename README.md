@@ -7,6 +7,7 @@ Provide a centralized web interface for IT administrators to manage users, group
  - Web Filtering - Blocklist
  - User state, logs and activity
  - Client Control (Shutdown or Sign-Off)
+ - Realtime Chat
 
 ### Backend
  - FastAPI - Python 3.7/3.8
