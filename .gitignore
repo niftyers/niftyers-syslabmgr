@@ -1,0 +1,6 @@
+# Go
+app/web
+
+# Vue
+vue/node_modules
+vue/*.env
