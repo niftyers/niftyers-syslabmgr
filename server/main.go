@@ -1,7 +1,6 @@
 package main
 
 import (
-	"embed"
 	"log"
 	"net/http"
 
@@ -9,10 +8,10 @@ import (
 	"github.com/niftyers/niftyers-syslabmgr/lib/handlers"
 )
 
-var embeddedFiles embed.FS
+
 
 func main() {
-	spaHandler := handlers.NewSPAHandler(embeddedFiles)
+	spaHandler := handlers.NewSPAHandler("./web") 
 	apiHandler := handlers.NewAPIHandler()
 
 	handler := http.StripPrefix("/", spaHandler)

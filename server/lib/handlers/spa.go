@@ -1,9 +1,9 @@
 package handlers
 
 import (
-	"embed"
 	"io/fs"
 	"net/http"
+	"os"
 	"path/filepath"
 	"strings"
 )
@@ -13,8 +13,9 @@ type SPAHandler struct {
 	fileSystem fs.FS
 }
 
-func NewSPAHandler(staticFiles embed.FS) *SPAHandler {
-	webFS, _ := fs.Sub(staticFiles, "web")
+// Serve from local disk (not embedded)
+func NewSPAHandler(path string) *SPAHandler {
+	webFS := os.DirFS(path)
 	return &SPAHandler{
 		fileServer: http.FileServer(http.FS(webFS)),
 		fileSystem: webFS,

@@ -5,9 +5,7 @@ WORKDIR /app
 COPY . .
 
 RUN mkdir -p server/web && cd vue && yarn && yarn build
-
-RUN apk add --no-cache go && \
-    cd server && go build -o ../syslabmgr
+RUN apk add --no-cache go && cd server && go build -o ../syslabmgr
 
 FROM alpine:3.22
 

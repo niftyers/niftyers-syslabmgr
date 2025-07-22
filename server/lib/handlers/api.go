@@ -31,19 +31,19 @@ func (h *APIHandler) handleHello(w http.ResponseWriter, r *http.Request) {
 		common.ErrorResponse(w, http.StatusMethodNotAllowed, "Method not allowed")
 		return
 	}
-	common.JSONResponse(w, http.StatusOK, map[string]interface{}{
+	common.JSONResponse(w, http.StatusOK, map[string]any{
 		"message": "Hello from Go!",
 		"status":  "success",
 	})
 }
 
-func (h *APIHandler) handleUsers(w http.ResponseWriter, r *http.Request) {
-	common.JSONResponse(w, http.StatusOK, map[string]interface{}{
+func (h *APIHandler) handleUsers(w http.ResponseWriter, _ *http.Request) {
+	common.JSONResponse(w, http.StatusOK, map[string]any{
 		"data": []string{"user1", "user2"},
 	})
 }
 
-func (h *APIHandler) handleNotFound(w http.ResponseWriter, r *http.Request) {
+func (h *APIHandler) handleNotFound(w http.ResponseWriter, _ *http.Request) {
 	common.ErrorResponse(w, http.StatusNotFound, "Endpoint not found")
 }
 
