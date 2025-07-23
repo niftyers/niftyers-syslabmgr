@@ -1,11 +1,21 @@
-import { fileURLToPath, URL } from 'node:url'
+import { fileURLToPath, URL } from 'node:url';
 
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import vueDevTools from 'vite-plugin-vue-devtools'
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import vuetify from 'vite-plugin-vuetify';
+import vueDevTools from 'vite-plugin-vue-devtools';
 
 export default defineConfig({
-  plugins: [vue(), vueDevTools()],
+  plugins: [
+    vue(),
+    vueDevTools(),
+    vuetify({
+      autoImport: true,
+      styles: {
+        configFile: 'src/assets/settings.scss',
+      },
+    }),
+  ],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
@@ -14,7 +24,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:8080',
+        target: 'http://localhost:9101',
         changeOrigin: true,
         secure: false,
       },
@@ -31,4 +41,15 @@ export default defineConfig({
       },
     },
   },
-})
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `
+          @use "sass:math";
+          @use "sass:color";
+          @import "@/styles/variables.scss";
+        `,
+      },
+    },
+  },
+});

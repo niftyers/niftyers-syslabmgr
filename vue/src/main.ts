@@ -1,14 +1,21 @@
-import './assets/main.css'
+import 'vuetify/styles';
+import '@mdi/font/css/materialdesignicons.css';
+import '@/assets/vuetify.scss';
 
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import * as plugins from './lib/plugins';
 
-import App from './App.vue'
-import router from './lib/router'
+import App from './App.vue';
 
-const app = createApp(App)
+import { createApp } from 'vue';
 
-app.use(createPinia())
-app.use(router)
+const app = createApp(App);
 
-app.mount('#app')
+app.config.errorHandler = (err) => {
+  console.log(err);
+};
+
+app.use(plugins.pinia);
+app.use(plugins.router);
+app.use(plugins.vuetify);
+
+app.mount('#app');
