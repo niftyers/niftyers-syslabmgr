@@ -13,9 +13,6 @@ export default defineConfig({
     vueDevTools(),
     vuetify({
       autoImport: true,
-      styles: {
-        configFile: 'src/assets/settings.scss',
-      },
     }),
   ],
   resolve: {

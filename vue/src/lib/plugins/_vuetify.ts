@@ -6,4 +6,17 @@ export const vuetify = createVuetify({
   ssr: true,
   components,
   directives,
+  theme: {
+    defaultTheme: 'niftyers',
+    themes: {
+      niftyers: {
+        dark: false,
+        colors: {
+          primary: '#263238',
+          secondary: '#78909C',
+          error: '#C62828',
+        },
+      },
+    },
+  },
 });

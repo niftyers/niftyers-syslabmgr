@@ -14,6 +14,4 @@ WORKDIR /app
 COPY --from=builder /app/syslabmgr .
 COPY --from=builder /app/server/web ./web
 
-USER appuser
-
 CMD ["./syslabmgr"]
