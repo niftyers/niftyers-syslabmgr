@@ -1,5 +1,7 @@
 # All
 *.env
+syslabmgr
+
 
 # Go
 app/web

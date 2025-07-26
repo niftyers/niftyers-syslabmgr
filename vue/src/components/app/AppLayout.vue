@@ -1,18 +1,18 @@
-<script setup lang="ts">
-import { RouterView } from 'vue-router'
-
-import AppHeader from './AppHeader.vue'
-import AppSidebar from './AppSidebar.vue'
-</script>
-
 <template>
-  <div class="app-layout">
+  <v-app class="layout">
+    <AppSidebar />
     <AppHeader />
-    <div class="layout-container">
-      <AppSidebar />
-      <main class="main-content">
-        <RouterView />
-      </main>
-    </div>
-  </div>
+    <v-main class="main">
+      <v-container fluid>
+        <slot name="content">
+          <router-view :key="$route.fullPath" />
+        </slot>
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
+
+<script setup lang="ts">
+import AppHeader from './AppHeader.vue';
+import AppSidebar from './AppSidebar.vue';
+</script>

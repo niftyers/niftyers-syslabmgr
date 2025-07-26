@@ -63,7 +63,7 @@ Built for LAN environments using Samba-based Active Directory (AD) servers on Li
 
 ### 🔧 Backend (API)
 
--  Flask
+-  [Go](https://go.dev/) for simple, secure, scalable system
 -  `ldap3` — LDAP access to Samba AD
 -  (Planned) SQLite or PostgreSQL for internal state
 -  (Planned) WebSocket support for control & chat
@@ -71,10 +71,10 @@ Built for LAN environments using Samba-based Active Directory (AD) servers on Li
 ### 🎨 Frontend
 
 -  [Vue 3](https://vuejs.org/) with [TypeScript](https://www.typescriptlang.org/)
--  [Tailwind CSS](https://tailwindcss.com/)
+-  [Vuetify 3](https://vuetifyjs.com/)
 -  [Vite](https://vitejs.dev/) for fast dev & builds
--  Pinia (state management)
--  Vue Router (navigation)
+-  [Pinia](https://pinia.vuejs.org/) for state management
+-  [Vue Router](https://router.vuejs.org/) for routing
 
 ---
 
