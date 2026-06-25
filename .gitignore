@@ -20,7 +20,6 @@ app-backend
 .env*
 !.env.example
 .venv/
-2026
-dump
-vue-backups
-backups
+temp
+__pycache__/
+*.pyc

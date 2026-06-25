@@ -1,0 +1,11 @@
+alembic
+asyncpg
+fastapi
+ldap3
+postgresql
+pydantic-settings
+python-dotenv
+python-jose[cryptography]
+python-multipart
+sqlalchemy
+uvicorn[standard]
