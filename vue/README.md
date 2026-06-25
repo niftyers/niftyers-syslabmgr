@@ -1,2 +1,0 @@
-# syslabmgr - vue
-
