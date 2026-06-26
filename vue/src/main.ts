@@ -1,6 +1,6 @@
-import 'vuetify/styles';
-import '@mdi/font/css/materialdesignicons.css';
 import '@/assets/style.css';
+import '@mdi/font/css/materialdesignicons.css';
+import 'vuetify/styles';
 
 import * as plugins from './lib/plugins';
 

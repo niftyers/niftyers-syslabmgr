@@ -4,10 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite --port 9100",
+    "dev": "vite --port 8901",
     "build": "run-p type-check \"build-only {@}\" --",
-    "preview": "vite preview --port 9100",
-    "serve": "serve app/web --port 9100",
+    "preview": "vite preview --port 8901",
+    "serve": "serve web --port 8901",
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
     "lint": "eslint . --fix",

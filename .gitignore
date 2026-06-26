@@ -1,10 +1,26 @@
-# All
-*.env
-syslabmgr
+# Directories
+node_modules
+dist
+build
+generated
+app-web
+app-backend
+.docs
+.agents
 
 
-# Go
-app/web
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 
-# Vue
-vue/node_modules
+# Environment files
+.env*
+!.env.example
+.venv/
+temp
+__pycache__/
+*.pyc
+web

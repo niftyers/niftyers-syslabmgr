@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
 
-import { SessionCreate, SessionRetrieve, KEY_SIDEBAR } from '@/lib/common';
+import { KEY_SIDEBAR, SessionCreate, SessionRetrieve } from '@/lib/common';
 
 export const useSidebar = defineStore('storeDrawer', () => {
   const stored = SessionRetrieve(KEY_SIDEBAR);

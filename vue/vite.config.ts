@@ -1,9 +1,9 @@
 import { fileURLToPath, URL } from 'node:url';
 
-import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify';
+import { defineConfig } from 'vite';
 import vueDevTools from 'vite-plugin-vue-devtools';
+import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify';
 
 export default defineConfig({
   plugins: [
@@ -23,14 +23,14 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:9101',
+        target: 'http://localhost:8900',
         changeOrigin: true,
-        secure: false,
+        rewrite: (path) => path.replace(/^\/api/, ''),
       },
     },
   },
   build: {
-    outDir: fileURLToPath(new URL('../server/web', import.meta.url)),
+    outDir: fileURLToPath(new URL('../web', import.meta.url)),
     emptyOutDir: true,
     rollupOptions: {
       output: {
