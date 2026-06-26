@@ -22,9 +22,9 @@ class LogAnalyzer:
     
     def __init__(self):
 
-        log_dir = os.getenv("LOG_PATH")
+        log_dir = os.getenv("LOG_SOURCE")
         if not log_dir:
-            print("❌ ERROR: LOG_PATH not set in .env file")
+            print("❌ ERROR: LOG_SOURCE not set in .env file")
             sys.exit(1)
         
         self.base_log_dir = Path(log_dir)

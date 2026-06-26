@@ -9,7 +9,7 @@ class Settings(BaseSettings):
     JWT_SECRET: str
     LDAP_SERVER: str
     LDAP_DOMAIN: str
-    LOG_PATH: str
+    LOG_SOURCE: str
     
     model_config = SettingsConfigDict(
         env_file=".env",
