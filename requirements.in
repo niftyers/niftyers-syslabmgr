@@ -4,6 +4,7 @@ asyncpg
 fastapi
 ldap3
 pydantic-settings
+pymongo
 python-dotenv
 python-jose[cryptography]
 python-multipart
