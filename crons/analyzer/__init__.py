@@ -7,10 +7,11 @@ from .exclusion import ExclusionManager
 from .loader import LogLoader
 from .processor import UserActivityProcessor
 from .storage import ReportStorage
+from .pc import PCManager
 
 __all__ = [
     'RunMode', 'DateRange', 'LogEntry',
     'DomainStats', 'PcStats', 'UserStats', 'DailyReport',
     'LogParser', 'ExclusionManager', 'LogLoader',
-    'UserActivityProcessor', 'ReportStorage'
+    'UserActivityProcessor', 'ReportStorage', 'PCManager'
 ]

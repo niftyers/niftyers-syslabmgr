@@ -43,20 +43,15 @@ class UserActivityProcessor:
             url = entry.url
             status = entry.status
             
-            # Skip unwanted status codes
             if status in [407, 403, 503]:
                 continue
             
-            # Skip invalid users
             if not user or user == "-" or user == "unknown" or user.startswith("SEMINARY"):
                 continue
-            
-            # Extract and check domain
             domain = self.extract_domain(url)
             if self.exclusion_manager.is_excluded(domain):
                 continue
             
-            # Add to user data
             self.users[user]["pcs"][ip].append(entry)
             self.users[user]["timeline"].append(
                 {"time": entry.timestamp, "pc": ip, "url": url}
