@@ -1,0 +1,14 @@
+[
+  { "no": 0, "name": "SEMINARY-SERVER", "ip": "192.168.10.1" },
+  { "no": 1, "name": "SEMINARY-PC-001", "ip": "192.168.10.121" },
+  { "no": 3, "name": "SEMINARY-PC-002", "ip": "192.168.10.122" },
+  { "no": 4, "name": "SEMINARY-PC-003", "ip": "192.168.10.123" },
+  { "no": 5, "name": "SEMINARY-PC-004", "ip": "192.168.10.124" },
+  { "no": 6, "name": "SEMINARY-PC-005", "ip": "192.168.10.125" },
+  { "no": 7, "name": "SEMINARY-PC-006", "ip": "192.168.10.126" },
+  { "no": 7, "name": "SEMINARY-PC-007", "ip": "192.168.10.127" },
+  { "no": 8, "name": "SEMINARY-PC-008", "ip": "192.168.10.128" },
+  { "no": 9, "name": "SEMINARY-PC-009", "ip": "192.168.10.129" },
+  { "no": 10, "name": "SEMINARY-PC-010", "ip": "192.168.10.130" },
+  { "no": 11, "name": "SEMINARY-PC-011", "ip": "192.168.10.131" }
+]
