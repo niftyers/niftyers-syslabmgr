@@ -5,7 +5,6 @@ class Settings(BaseSettings):
     APP_HOST: str = "localhost"
     APP_PORT: int = 8900
     APP_DEBUG: bool = False
-    DATABASE_URL: str
     JWT_SECRET: str
     LDAP_SERVER: str
     LDAP_DOMAIN: str
