@@ -2,6 +2,7 @@
 Proxy Log Analyzer - Main orchestrator.
 """
 
+from analyzer import PCManager
 from analyzer import (
     RunMode, LogLoader, ReportStorage, 
     ExclusionManager, UserActivityProcessor
@@ -18,18 +19,16 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class LogAnalyzer:
-    """Main analyzer class supporting different run modes."""
-    
     def __init__(self):
 
         log_dir = os.getenv("LOG_SOURCE")
         if not log_dir:
-            print("❌ ERROR: LOG_SOURCE not set in .env file")
+            print("ERROR: LOG_SOURCE not set in .env file")
             sys.exit(1)
         
         self.base_log_dir = Path(log_dir)
         if not self.base_log_dir.exists():
-            print(f"❌ ERROR: Log directory does not exist: {self.base_log_dir}")
+            print(f"ERROR: Log directory does not exist: {self.base_log_dir}")
             sys.exit(1)
         
         self.script_dir = Path(__file__).parent
@@ -47,12 +46,13 @@ class LogAnalyzer:
 
         logs = self.log_loader.load_logs_for_date(date)
         if not logs:
-            print("❌ No valid logs found for this date!")
+            print("No valid logs found for this date!")
             return None
         
         processor = UserActivityProcessor(self.exclusion_manager)
         processor.process_logs(logs)
         report = processor.generate_report(date)
+        pcm = PCManager(self.script_dir)
         
         report_dict = {
             "date": report.date,
@@ -61,16 +61,17 @@ class LogAnalyzer:
                     "username": user.username,
                     "pcs": [
                         {
+                            "name": pcm.get_pc_name(pc.ip),
                             "ip": pc.ip,
                             "domains": [
-                                {"name": d.name, "count": d.count} 
+                                {"url": d.name, "count": d.count} 
                                 for d in pc.domains
                             ],
                             "count": pc.count
                         }
                         for pc in user.pcs
                     ],
-                    "total_count": user.total_count
+                    "total": user.total_count
                 }
                 for user in report.users
             ]
@@ -101,8 +102,6 @@ class LogAnalyzer:
     def run(self, mode: RunMode = RunMode.DAILY, 
             start_date: Optional[datetime] = None,
             end_date: Optional[datetime] = None):
-        print("🚀 Starting Log Analyzer...")
-        print("=" * 80)
         
         if mode == RunMode.DAILY:
             self.analyze_daily()
@@ -118,7 +117,7 @@ class LogAnalyzer:
             raise ValueError(f"Invalid mode: {mode}")
         
         self.report_storage.close()
-        print("\n✅ Analysis complete!")
+        print("\n✅ Completed!")
 
 
 def parse_date(date_str: str) -> datetime:

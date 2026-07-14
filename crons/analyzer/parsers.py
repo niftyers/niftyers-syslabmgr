@@ -21,21 +21,16 @@ class LogParser:
         try:
             parts = line.split(" ")
             
-            # Extract timestamp
             timestamp_str = parts[0]
             timestamp = float(timestamp_str)
             dt = datetime.fromtimestamp(timestamp)
             
-            # Extract user
             user = LogParser._extract_user(parts)
-            
-            # Extract IP
+        
             ip = LogParser._extract_ip(parts)
             
-            # Extract method and URL
             method, url = LogParser._extract_method_url(parts)
             
-            # Extract status
             status = LogParser._extract_status(parts)
             
             if url and ip:
